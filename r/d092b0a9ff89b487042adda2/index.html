@@ -4,7 +4,7 @@
 <meta name="robots" content="noindex,nofollow">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data: blob:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'; form-action 'none'; base-uri 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data: blob:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src https://review.neurevo.tech; form-action 'none'; base-uri 'none'">
 <title>Review Agreement - Signing Page</title>
 <style>
 :root { --ink:#16181d; --muted:#5a606b; --line:#cfd3da; --bg:#f3f4f6; --card:#fff; --accent:#1f4e79; --red:#a11a1a; --ok:#1e6b3a; }
@@ -53,7 +53,7 @@ input[readonly] { background: #eef0f3; }
 [hidden] { display: none !important; }
 </style>
 </head>
-<body data-return="" data-token="" data-email="hello@neurevo.tech">
+<body data-return="https://review.neurevo.tech/sign" data-token="" data-email="hello@neurevo.tech">
 <div class="banner">DRAFT v0.1 — FOR COUNSEL&#x27;S REVIEW — NOT YET CLEARED FOR SIGNATURE</div>
 <main>
 <section class="how" id="gate-return" aria-label="Already signed">
@@ -835,13 +835,14 @@ $("gate-go").addEventListener("click", function () {
 var done = false;
 new MutationObserver(function () {
   var s = $("status");
-  if (done || s.className !== "ok" || s.textContent.indexOf("Done.") !== 0) { return; }
+  var sent = s.textContent.indexOf("Received") === 0;
+  if (done || s.className !== "ok" || (s.textContent.indexOf("Done.") !== 0 && !sent)) { return; }
   done = true;
   var email = norm($("email").value), name = ($("name").value || "").trim();
   var m = /saved to this computer as (\S+\.pdf)/.exec(s.textContent);
   try { localStorage.setItem(KEY + email, new Date().toISOString()); } catch (x) {}
   unlock();
-  if (TO) {
+  if (TO && !sent) {
     window.location.href = "mailto:" + TO
       + "?subject=" + encodeURIComponent("Signed Review Agreement - " + name)
       + "&body=" + encodeURIComponent("Attached: my signed Review Agreement"
