@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; script-src &#x27;self&#x27; &#x27;unsafe-inline&#x27; file:; style-src &#x27;self&#x27; &#x27;unsafe-inline&#x27; file:; img-src &#x27;self&#x27; data: file:; font-src &#x27;self&#x27; data: file:; connect-src &#x27;none&#x27;; base-uri &#x27;none&#x27;">
+<meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neurevo PHAROS — how the record is graded</title>
+<meta name="description" content="Every PHAROS forecast, morning and mid-day, is archived and fingerprinted before the first hour it plans, and graded the next day against settled ERCOT prices. Misses are counted with the hits. This is the method the live record is kept by.">
+<link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/neurevo.css">
+  <script src="../assets/appearance.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="../index.html">
+      <span class="orb" aria-hidden="true"></span>
+      <span class="lockup">
+        <span class="wordmark">NEUREVO</span>
+        <span class="brand-sub">PHAROS &middot; dispatch intelligence</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="../index.html#terms">The deal</a>
+      <a href="../trust/index.html">Trust</a>
+      <a href="index.html" aria-current="page">Scorecard</a>
+      <a href="../about/index.html">About</a>
+      <a class="btn btn--sm btn--key" href="../portal/login/index.html"><span>Client sign-in</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<article class="article">
+  <div class="wrap">
+
+    <div class="article-head">
+      <p class="eyebrow">Scorecard &middot; The method</p>
+      <h1 style="max-width:20ch">How the record is graded.</h1>
+      <p class="lede measure">
+        A backtest can be re-run until it flatters you. A public clock cannot.
+      </p>
+      <p class="lede measure">
+        What gets written down, when, and how it is marked afterwards.
+      </p>
+    </div>
+
+    <div class="article-body">
+
+      <div class="callout">
+        <p class="eyebrow">The short version</p>
+        <p>
+          Each issue, morning and mid-day, is fingerprinted before the first hour
+          it plans and graded the next day against ERCOT's settled prices. The
+          system tracks every forecast against what actually happened; each
+          week is reported once every day of it has settled, final on issue,
+          and each quarter closes on a Quarterly Report. The misses are kept
+          beside the hits, and nothing is dropped for looking bad. The record
+          we show you is the record kept.
+        </p>
+      </div>
+
+      <h2>What gets written down, and when</h2>
+
+      <p>
+        A forecast that can be edited after the fact is not evidence. So every
+        issue is serialised to JSON, hashed with SHA-256, and archived at the moment it is issued, before the first hour it plans: the
+        morning issue before the operating day opens, the mid-day issue before
+        15:00.
+        The archive is append-only. A day that has been graded is not regraded,
+        and an issue that has been archived is not revised, which means the
+        record can embarrass us and there is no mechanism by which it would not.
+      </p>
+
+      <p>
+        Grading happens the following day, once ERCOT's settlement for the
+        window is available. We grade against ERCOT's settled prices rather than
+        against our own replay of them, on a window fixed in the protocol rather
+        than chosen afterwards, and a day becomes eligible only once enough of it has settled to be judged fairly.
+        Both daily issues are graded, each on its own plan window: 07:00 to
+        07:00 for the morning issue, 15:00 to 15:00 for the mid-day.
+      </p>
+
+      <h2>What gets counted</h2>
+
+      <div class="offer" style="margin-bottom:clamp(28px,4vw,44px)">
+        <ul>
+          <li><b>Both failure modes, always.</b> The spikes that were not forecast, and the spikes forecast on a day that stayed quiet. A hit rate published without its false-positive rate is not a measurement.</li>
+          <li><b>The thresholds were frozen first.</b> Every cutoff was fixed before the record it grades began, in the sealed evaluation or in its own sealed protocol, and none is re-fitted as the record accrues. Re-fitting them as the record accrues is the move that would make a live record meaningless, and the protocol does not permit it.</li>
+          <li><b>One primary threshold, named in advance.</b> Three of the higher thresholds are saturated by construction &mdash; a spike forecast against them would land every day &mdash; so the protocol designates the lower one as the discriminative threshold. That designation is Amendment A1 to the pre-registration, dated and logged.</li>
+          <li><b>The dispatch line is graded too.</b> It is kept alongside the spike forecast even though we expect it to be the weaker of the two, because the sealed evaluation said so and dropping it now would be choosing the flattering half.</li>
+          <li><b>Nothing is dropped for looking bad.</b> There is no discretionary exclusion. A day is eligible or it is not, on a rule written before the day happened.</li>
+        </ul>
+      </div>
+
+      <h2>What can change, and how you would know</h2>
+
+      <p>
+        The protocol can be amended. It cannot be amended quietly. Every
+        amendment is dated, appended rather than edited into the sealed body,
+        and carries its own fingerprint of the document as amended, so the
+        original lock stays checkable against the original hash. The full ledger of amendments to the pre-registration, with what each one
+        changed, is on the <a href="../trust/index.html">Trust page</a> beside the sealed
+        evaluation itself, and each later sealed protocol keeps its own.
+      </p>
+
+      <p>
+        That is the whole architecture, and it is deliberately public. A method
+        you can inspect is what makes a record worth anything. We would rather
+        be judged on whether the method is honest than on any single figure it
+        happened to produce this month.
+      </p>
+
+      <h2>Where the record itself lives</h2>
+
+      <p>
+        The graded record, the running ledger and the day-by-day detail open on
+        a live screen when we meet, and in the client portal once you are
+        working with us. We go through it with you, including the days it went
+        against us, and you can ask it anything you like while it is in front of
+        you.
+      </p>
+
+      <!-- THE DEAL, second placement. The fee's mechanics live off the public
+           site by rule; this states only why the grading matters to the
+           money. -->
+      <div class="trio-wrap" style="margin:clamp(30px,4vw,44px) 0">
+        <h2 style="max-width:24ch">What the grading is for</h2>
+        <div class="trio-copy">
+          <p>
+            The fee is performance-based and only on results: we make money when you do. It is worked out week by week on settled
+            prices, from the same archived plans this page describes. There is
+            no retainer and no minimum, and no month you cannot leave. An
+            initiation advance at signing is credited against the fees as they
+            come due, and nothing is owed when there is no Gain. The full terms are part of every walkthrough.
+          </p>
+        </div>
+      </div>
+
+      <p>
+        <a class="btn btn--primary" href="../request/index.html">Start on your own asset</a>
+      </p>
+
+      <blockquote>
+        <p>
+          PHAROS provides probabilistic forecasts and decision-support
+          information only. Nothing here is an instruction to operate equipment,
+          an offer to transact, or a guarantee of market outcomes. Dispatch
+          decisions and their results remain solely with the operator.
+        </p>
+      </blockquote>
+
+      <hr style="margin:40px 0 28px">
+
+      <div class="cards">
+        <a class="card" href="../trust/index.html">
+          <div class="n">Context</div>
+          <h3>The sealed evaluation</h3>
+          <p>The bet we locked, published, and lost. And the part of it that survived.</p>
+          <span class="go">Read the null result &rarr;</span>
+        </a>
+        <a class="card" href="../request/index.html">
+          <div class="n">Next</div>
+          <h3>Start on your own asset</h3>
+          <p>A virtual walkthrough of the product on a demonstration account. Your own asset from the first day of service.</p>
+          <span class="go">Start here &rarr;</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="wordmark">NEUREVO</div>
+        <div class="brand-sub">PHAROS &middot; dispatch intelligence</div>
+        <p style="margin-top:14px;max-width:44ch">
+          PHAROS is Neurevo's advisory-only ERCOT price-spike forecasting and
+          battery-dispatch service.
+        </p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="../index.html">Home</a>
+        <a href="../index.html#terms">The deal</a>
+        <a href="../request/index.html">Start on your own asset</a>
+        <a href="../trust/index.html">Trust</a>
+        <a href="index.html">Scorecard</a>
+        <a href="../about/index.html">About &amp; disclaimer</a>
+        <a href="../portal/login/index.html">Client sign-in</a>
+        <span data-appearance-slot class="footer-appearance"></span>
+      </nav>
+    </div>
+    <p class="disclaimer">
+      <strong>Advisory notice.</strong>
+      Neurevo's PHAROS service provides forecasts and decision-support
+      information only. Nothing on this site is an instruction to operate
+      equipment, an offer to transact, or a guarantee of market outcomes.
+      Dispatch decisions and their results remain solely with the operator.
+    </p>
+    <div class="colophon">
+      <span>&copy; 2026 Neurevo LLC</span>
+      <span>neurevo.tech</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

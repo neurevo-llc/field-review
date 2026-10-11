@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="NEUREVO mark">
+  <path d="M22.5 50 A20 20 0 1 1 41.5 50" fill="none" stroke="#e0a36a" stroke-width="1.8" stroke-linecap="round"></path>
+
+  <g fill="none" stroke-linecap="butt">
+    <path d="M21.8 51.5 V42" stroke="#ece7dd" stroke-width="2.1"></path>
+    <path d="M27 51.5 V34.5" stroke="#ece7dd" stroke-width="2.1"></path>
+    <path d="M32.2 51.5 V24.5" stroke="#e0a36a" stroke-width="2.4"></path>
+    <path d="M37.4 51.5 V30.5" stroke="#e0a36a" stroke-width="2.1"></path>
+    <path d="M42.6 51.5 V40" stroke="#ece7dd" stroke-width="2.1"></path>
+  </g>
+</svg>

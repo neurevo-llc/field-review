@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; script-src &#x27;self&#x27; &#x27;unsafe-inline&#x27; file:; style-src &#x27;self&#x27; &#x27;unsafe-inline&#x27; file:; img-src &#x27;self&#x27; data: file:; font-src &#x27;self&#x27; data: file:; connect-src &#x27;none&#x27;; base-uri &#x27;none&#x27;">
+<meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trust — we made a bet, locked it, and lost | Neurevo PHAROS</title>
+<meta name="description" content="We locked an evaluation protocol, published its fingerprint, ran it once, and lost the bet we made. How the test was built, what it settled, and what survived it.">
+<link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/neurevo.css">
+  <script src="../assets/appearance.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="../index.html">
+      <span class="orb" aria-hidden="true"></span>
+      <span class="lockup">
+        <span class="wordmark">NEUREVO</span>
+        <span class="brand-sub">PHAROS &middot; dispatch intelligence</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="../index.html#terms">The deal</a>
+      <a href="index.html" aria-current="page">Trust</a>
+      <a href="../scorecard/index.html">Scorecard</a>
+      <a href="../about/index.html">About</a>
+      <a class="btn btn--sm btn--key" href="../portal/login/index.html"><span>Client sign-in</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<article class="article">
+  <div class="wrap">
+
+    <div class="article-head">
+      <p class="eyebrow">Trust &middot; The sealed evaluation</p>
+      <h1 style="max-width:22ch">We made a bet, locked it, and lost.</h1>
+      <p class="lede measure">
+        How the test was built, what it settled, and what is left standing.
+      </p>
+    </div>
+
+    <div class="article-body">
+
+      <p>
+        Most forecasting vendors in this space will show you a backtest. Almost
+        none will show you a backtest they couldn't quietly redo until it looked
+        good. We built PHAROS to be checkable, so we ran the check the hard way:
+        we wrote down exactly what we were testing and how we'd score it,
+        recorded a cryptographic fingerprint of that protocol before looking at
+        a single day of the evaluation data, then ran the evaluation exactly
+        once. The scoring script now mechanically refuses to run a second time.
+      </p>
+
+      <p>
+        The bet we pre-registered didn't pay off. We say so here, in front of
+        everything else, because a result you can't falsify isn't a result, and
+        because the honesty of that null is what makes the rest of this page
+        worth reading.
+      </p>
+
+      <h2>The protocol</h2>
+
+      <p>
+        On 2026-07-26 we locked a pre-registration document. The research
+        question, the data splits, the spike thresholds, the models being
+        compared and the success criteria were all fixed in it, and we recorded
+        its SHA-256 hash (<code>3e60f898&hellip;</code>) before touching a
+        single day of held-out data. That fingerprint is
+        <a href="https://gist.github.com/Cathca/c183719acb622cc67ab6288d32ca529b" rel="noopener noreferrer">publicly posted</a>.
+        Be precise about what that buys you: the document itself is still
+        sealed, because it describes how the method works, so the hash is a
+        commitment device rather than a verification you can perform today. It
+        means we cannot quietly rewrite the protocol later and claim we had it
+        all along.
+      </p>
+
+      <p>
+        Two amendments have been adopted and logged since the lock, so the
+        posted fingerprint matches the document as it stood on the day we sealed
+        it, not the file as it reads now. Both are listed below with their dates
+        and what each one changed, because a page whose whole argument is
+        &ldquo;we cannot quietly rewrite the protocol later&rdquo; has to show
+        you the record of every time we changed it openly. The holdout window
+        was sealed: 2025-07-01 through 2026-06-30, a full year, 363 forecast
+        issues, 362 of them eligible. It could only be touched once, by a
+        scoring script that was frozen and independently reviewed before the
+        run.
+      </p>
+
+      <h3>The amendment log</h3>
+
+      <p>
+        Amendments to the pre-registration, in the order they were adopted. Each
+        one is dated, appended rather than edited into the sealed body, and
+        carries its own fingerprint of the document as amended.
+      </p>
+
+      <div class="table-scroll">
+      <table>
+        <caption>Amendments to the pre-registration (the sealed evaluation protocol)</caption>
+        <thead>
+          <tr><th scope="col">Amendment</th><th scope="col">Adopted</th><th scope="col">What it changed</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>A1</td>
+            <td>2026-07-30</td>
+            <td>
+              Designated the $200+ threshold the discriminative threshold for
+              operational and client-facing use, because three higher
+              thresholds are saturated by construction and a spike forecast
+              against them would land every day. Presentation and designation
+              only; grading and archived issues unchanged.
+            </td>
+          </tr>
+          <tr>
+            <td>A2</td>
+            <td>2026-08-20</td>
+            <td>
+              Permitted post-holdout data to be read for development evidence
+              (arithmetic, screening, operations) and barred it from fitting,
+              from any confirmatory claim, and from being shown to a client as
+              validation. Prospective only.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <p class="footnote">
+        Read this alongside the fingerprint above rather than instead of it. The
+        posted hash attests the sealed body on the day of the lock and is never
+        regenerated, so hashing the current document against it returns a
+        mismatch. That is by design, and this table is what the mismatch is made
+        of. A hash that moved with its subject would prove nothing. Amendments
+        are always cited with the document they belong to: these two are amendments to the pre-registration, and each later sealed
+        protocol of ours carries its own separately-numbered series.
+      </p>
+
+      <p>
+        Since the sealed year, every new forecast has been sealed the same way
+        before its first issue: the mid-day issue, and a forecast for each
+        trading hub a client settles at. Each has its own fingerprint and its
+        own amendment log.
+      </p>
+      <p>
+        Two mechanical hiccups happened during the run: a duplicated data batch,
+        and a cosmetic crash after scoring had already completed. Both are
+        logged with evidence that no results were visible to us before either
+        was fixed. Nothing about the outcome was known in advance, and nothing
+        about the protocol changed after the fact.
+      </p>
+
+      <p>
+        We also split every result three ways: before ERCOT's market redesign on
+        2025-12-05, after it, and combined. We do that because the redesign changed the
+        market mid-holdout and pretending it didn't would be exactly the kind of
+        after-the-fact framing this exercise exists to prevent.
+      </p>
+
+      <h2>The bet, and why it lost</h2>
+
+      <p>
+        <strong>Research question:</strong> does a dispatch policy built on our candidate forecasting method beat simpler methods
+        at capturing arbitrage revenue, out of sample?
+      </p>
+
+      <p>
+        <strong>Answer: no.</strong> Over the full sealed year the candidate
+        method was beaten by a simple point-forecast baseline, and beaten by a
+        plain persistence rule that does no forecasting at all. The margin was
+        wide enough that the confidence interval did not cross zero, and the
+        result held in both the pre-redesign and post-redesign segments of the
+        year. This is not noise. The candidate method genuinely underperformed,
+        and we said in the pre-registration that we would say so if it did.
+      </p>
+
+      <p>
+        We don't think this means that whole family of forecasting is worthless.
+        We think it means <em>this specific dispatch method</em>, built on our
+        candidate forecasting method, isn't the right way to spend that
+        information. That is a real, useful, humbling finding, and it is the
+        reason the product you'd actually buy from us today does not use this
+        method to decide when to charge and discharge.
+      </p>
+
+      <h2>What survived</h2>
+
+      <p>
+        The pre-registration also asked a second question, orthogonal to
+        dispatch timing: when a real price spike is coming, does the candidate
+        method's forecast rank that hour among the riskiest? That question came
+        through the sealed year intact, at every threshold the protocol named,
+        across a full calendar year that spanned a market redesign. The simpler
+        comparator model, tested side by side on the same data, did not.
+      </p>
+
+      <p>
+        So the sealed exam settled two things in opposite directions. The method
+        is not good at telling you when to trade. It is good at telling you when
+        to pay attention. Everything we built afterwards follows from taking
+        that seriously rather than arguing with it.
+      </p>
+
+      <h2>&ldquo;A disciplined rule does well on its own. So what are you selling?&rdquo;</h2>
+
+      <p>
+        It is the first question any operator should ask after reading the
+        paragraph above, and it deserves a straight answer rather than a
+        deflection.
+      </p>
+
+      <p>
+        <strong>You are not paying for a claimed edge over a disciplined
+        rule.</strong> On the post-redesign market we would not stand behind
+        that claim, and nothing below walks it back. What the sealed year
+        actually shows is that a disciplined rule does far better than the fleet
+        typically does. That rule is not what most operators are running. It is
+        what most operators are <em>not</em> running, every morning, on time,
+        for a specific asset.
+      </p>
+
+      <p>
+        So what you are buying is the discipline itself, executed: a plan issued before the day starts rather than after, and re-issued
+        every day at 13:45 CT on the next day's prices, built on your battery's
+        own hardware limits and priced at your trading hub, arriving early
+        enough to act on, with <strong>both plans graded afterwards, where we
+        cannot revise them</strong>. That last item is the one a spreadsheet cannot copy.
+        A rule you could write yourself is only worth something on the mornings
+        somebody actually runs it, reads it, and acts on it before the window
+        closes.
+      </p>
+
+      <p>
+        Two honest caveats, because this is the page where they belong. First,
+        everything above comes from a sealed year that has ended, on a market
+        that has since been redesigned. None of it is a live result. The live
+        record is graded by a method that cannot be revised after the fact, and
+        that method is <a href="../scorecard/index.html">set out in full</a>. Second, we are
+        not promising you a number. Every figure we put in front of you is computed backwards, on settled
+        prices: the Recorded figure from your own settled dispatch, its
+        Baseline, the Gain between them, and what the plan was worth beside
+        it. We walk through it on a live screen in the
+        <a href="../request/index.html">walkthrough</a>.
+      </p>
+
+      <p>
+        That is precisely why the live record exists, why a challenger
+        discipline runs behind it, and why the method both are kept by is
+        public. Anything from a sealed year is a starting point that has to be
+        re-earned in the market as it is now, day by day, where we cannot revise
+        it afterwards.
+      </p>
+
+      <h2>The trust architecture is the other asset</h2>
+
+      <p>
+        Everything above is checkable by design: the locked protocol, its hash,
+        the frozen scoring script, the one-shot execution, and the fact that
+        we're publishing the losing result with the same rigor as the winning
+        one. We're not aware of another vendor in this niche who publishes a
+        pre-registered, fingerprinted, null-result-included backtest. That isn't
+        a marketing claim. It is a standing offer to be checked.
+      </p>
+
+      <p>
+        Running behind it is a rolling record, accruing day by day, graded the
+        next day against settled prices. In the end that is the stronger
+        evidence, because unlike a backtest it cannot be revised after the fact.
+        <a href="../scorecard/index.html">How it is graded</a> is set out in full.
+      </p>
+
+      <h2>What this means for you</h2>
+
+      <div class="callout">
+        <p class="eyebrow">Read this part twice</p>
+        <p>
+          None of the above predicts what happens next. A one-shot evaluation
+          over a sealed historical year tells you what would have happened,
+          under fixed rules, on days that have already passed. It is evidence
+          about the past, not a promise about the future. Any capability
+          described here is offered as advisory input to your own dispatch
+          decisions, not as a performance guarantee. Markets move and redesigns
+          happen. One already did mid-evaluation. The honest posture is to keep
+          re-testing rather than to stop at one good result.
+        </p>
+      </div>
+
+      <p>
+        We open the fingerprints, the scoring artifacts and the running record on a
+        live screen and walk through them with you.
+        <a href="../request/index.html">Start on your own asset</a>, and bring your hardest
+        questions.
+      </p>
+
+      <hr style="margin:40px 0 28px">
+
+      <div class="cards">
+        <a class="card" href="../scorecard/index.html">
+          <div class="n">Next</div>
+          <h3>How the grading works</h3>
+          <p>Archived before, graded after, misses counted, thresholds frozen. The method the live record is kept by.</p>
+          <span class="go">See the method &rarr;</span>
+        </a>
+        <a class="card" href="../request/index.html">
+          <div class="n">Next</div>
+          <h3>Start on your own asset</h3>
+          <p>A virtual walkthrough of the product on a demonstration account. Your own asset from the first day of service.</p>
+          <span class="go">Start here &rarr;</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="wordmark">NEUREVO</div>
+        <div class="brand-sub">PHAROS &middot; dispatch intelligence</div>
+        <p style="margin-top:14px;max-width:44ch">
+          PHAROS is Neurevo's advisory-only ERCOT price-spike forecasting and
+          battery-dispatch service.
+        </p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="../index.html">Home</a>
+        <a href="../index.html#terms">The deal</a>
+        <a href="../request/index.html">Start on your own asset</a>
+        <a href="index.html">Trust</a>
+        <a href="../scorecard/index.html">Scorecard</a>
+        <a href="../about/index.html">About &amp; disclaimer</a>
+        <a href="../portal/login/index.html">Client sign-in</a>
+        <span data-appearance-slot class="footer-appearance"></span>
+      </nav>
+    </div>
+    <p class="disclaimer">
+      <strong>Advisory notice.</strong>
+      Neurevo's PHAROS service provides forecasts and decision-support
+      information only. Nothing on this site is an instruction to operate
+      equipment, an offer to transact, or a guarantee of market outcomes.
+      Dispatch decisions and their results remain solely with the operator.
+    </p>
+    <div class="colophon">
+      <span>&copy; 2026 Neurevo LLC</span>
+      <span>neurevo.tech</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

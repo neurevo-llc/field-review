@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; script-src &#x27;self&#x27; &#x27;unsafe-inline&#x27; file:; style-src &#x27;self&#x27; &#x27;unsafe-inline&#x27; file:; img-src &#x27;self&#x27; data: file:; font-src &#x27;self&#x27; data: file:; connect-src &#x27;none&#x27;; base-uri &#x27;none&#x27;">
+<meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neurevo PHAROS — start on your own asset</title>
+<meta name="description" content="Tell us which battery you run. We walk you through the product on a virtual call, and read your resource from public ERCOT data first. Free, and no obligation.">
+<link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/neurevo.css">
+  <script src="../assets/appearance.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="../index.html">
+      <span class="orb" aria-hidden="true"></span>
+      <span class="lockup">
+        <span class="wordmark">NEUREVO</span>
+        <span class="brand-sub">PHAROS &middot; dispatch intelligence</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="../index.html#terms">The deal</a>
+      <a href="../trust/index.html">Trust</a>
+      <a href="../scorecard/index.html">Scorecard</a>
+      <a href="../about/index.html">About</a>
+      <a class="btn btn--sm btn--key" href="../portal/login/index.html"><span>Client sign-in</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<article class="article">
+  <div class="wrap">
+
+    <div class="article-head">
+      <p class="eyebrow">Get started</p>
+      <h1 style="max-width:22ch">Start on your own asset.</h1>
+      <p class="lede measure">
+        Tell us which resource you run and we set up a virtual walkthrough.
+        Before we meet, we measure it from public ERCOT data: what it earned,
+        against what the same battery could have earned on the same days.
+        On the call we walk you through the product on a demonstration
+        account: both daily briefs, the live dashboard, the weekly and
+        Quarterly Reports, and the graded record. Your own asset goes on the
+        order form, and its plans are built for it from the first day of
+        service.
+      </p>
+    </div>
+
+    <div class="article-body" style="max-width:none">
+      <div class="grid-2" style="display:grid;gap:clamp(28px,5vw,64px);align-items:start">
+
+        <div class="measure">
+          <h2 style="margin-top:0">What you get</h2>
+          <p>
+            A virtual walkthrough of the product as a client sees it, on a
+            demonstration account. And a short written read on one resource:
+            how it behaved over a window ending about sixty days ago, the most
+            recent ERCOT has published, where the money was on the days that
+            paid, and how big the difference was. Hours the battery held
+            ancillary service are set aside, so the read measures only what was
+            traded. Measured, not guessed. The telemetry and the prices are
+            both public, so you can check our arithmetic.
+          </p>
+          <p>
+            It costs nothing and commits you to nothing. If the number turns out
+            to be small, we will say so.
+          </p>
+
+          <h2>What we need from you</h2>
+          <p>
+            The SCED resource name, the identifier ERCOT publishes your resource
+            under, and where to reach you. We work from public records, so we
+            do not need access to anything of yours.
+          </p>
+
+          <div class="callout">
+            <p class="eyebrow">One resource, one read</p>
+            <p>
+              If you run several, name the one you are most curious about and
+              mention the rest in the note. We would rather do one carefully
+              than four quickly.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <form id="request-form"
+                class="form-grid"
+                method="post"
+                action="REPLACE_WITH_FORM_ENDPOINT"
+                novalidate>
+
+            <!-- Field names are plain and service-agnostic. -->
+
+            <p class="eyebrow eyebrow--muted" style="grid-column:span 2;margin-bottom:0">
+              Inquiry
+            </p>
+
+            <div class="field">
+              <label for="resource">SCED resource name <span class="req">*</span></label>
+              <input type="text" id="resource" name="sced_resource_name" required
+                     autocomplete="off" spellcheck="false"
+                     placeholder="e.g. EXAMPLE_ESR1">
+              <p class="hint">The resource identifier as it appears in ERCOT's public records.</p>
+            </div>
+
+            <div class="field field--half">
+              <label for="company">Company <span class="req">*</span></label>
+              <input type="text" id="company" name="company" required autocomplete="organization">
+            </div>
+
+            <div class="field field--half">
+              <label for="email">Contact email <span class="req">*</span></label>
+              <input type="email" id="email" name="email" required autocomplete="email">
+            </div>
+
+            <div class="field">
+              <label for="note">Anything we should know <span style="color:var(--ink-4)">(optional)</span></label>
+              <textarea id="note" name="note"
+                        placeholder="Outages, commissioning dates, a tolling arrangement, a period you'd like us to skip — anything that would make a naive read of the public data wrong."></textarea>
+              <p class="hint">Optional, but it makes the read better.</p>
+            </div>
+
+            <p class="form-status" id="form-status" role="status" hidden></p>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn--primary">Request a walkthrough</button>
+              <span class="pill pill--advisory">No cost &middot; No obligation</span>
+            </div>
+
+            <p class="form-note">
+              We use what you send here to prepare your read, to set up the
+              walkthrough and to reply to you,
+              and for nothing else. We don't sell it, and we don't add you to a
+              list. There are no analytics or advertising trackers on this site.
+            </p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="wordmark">NEUREVO</div>
+        <div class="brand-sub">PHAROS &middot; dispatch intelligence</div>
+        <p style="margin-top:14px;max-width:44ch">
+          PHAROS is Neurevo's advisory-only ERCOT price-spike forecasting and
+          battery-dispatch service.
+        </p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="../index.html">Home</a>
+        <a href="../index.html#terms">The deal</a>
+        <a href="index.html">Start on your own asset</a>
+        <a href="../trust/index.html">Trust</a>
+        <a href="../scorecard/index.html">Scorecard</a>
+        <a href="../about/index.html">About &amp; disclaimer</a>
+        <a href="../portal/login/index.html">Client sign-in</a>
+        <span data-appearance-slot class="footer-appearance"></span>
+      </nav>
+    </div>
+    <p class="disclaimer">
+      <strong>Advisory notice.</strong>
+      Neurevo's PHAROS service provides forecasts and decision-support
+      information only. Nothing on this site is an instruction to operate
+      equipment, an offer to transact, or a guarantee of market outcomes.
+      Dispatch decisions and their results remain solely with the operator.
+    </p>
+    <div class="colophon">
+      <span>&copy; 2026 Neurevo LLC</span>
+      <span>neurevo.tech</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* While the action is the sentinel string, nothing is posted anywhere:
+   submission is cancelled and the fallback contact route is shown instead. */
+(function () {
+  var SENTINEL_ACTION = "REPLACE_WITH_FORM_ENDPOINT";
+  var FALLBACK_ADDRESS = "hello@neurevo.tech";
+  var form = document.getElementById("request-form");
+  var status = document.getElementById("form-status");
+  if (!form || !status) return;
+
+  form.addEventListener("submit", function (event) {
+    if (form.getAttribute("action") !== SENTINEL_ACTION) return; /* post normally */
+    event.preventDefault();
+    status.hidden = false;
+    status.innerHTML =
+      "This form isn't connected yet. Send the same details — SCED resource " +
+      "name, company, contact email, and any note — to <a href=\"mailto:" +
+      FALLBACK_ADDRESS + "\">" + FALLBACK_ADDRESS + "</a> and we'll pick it up there.";
+    status.scrollIntoView({ block: "nearest" });
+  });
+})();
+</script>
+
+</body>
+</html>
