@@ -16,7 +16,7 @@
 }
 .app-bar-inner {
   display: flex; align-items: center; justify-content: space-between;
-  gap: 16px; padding: 6px 0; min-height: 44px;
+  gap: 4px 16px; padding: 6px var(--gut); min-height: 44px;
 }
 
 .app-bar .brand {
@@ -34,14 +34,13 @@
   font-family: var(--mono); font-size: var(--t-caption2); letter-spacing: .14em;
   text-transform: uppercase; color: var(--on-navy-2); text-align: right;
   display: grid; grid-template-columns: minmax(0, 1fr); gap: 2px; min-width: 0;
-  overflow-wrap: anywhere;
+  margin-left: auto; overflow-wrap: anywhere;
 }
 .app-who strong { color: var(--on-navy); font-weight: 500; }
 
 
 @media (max-width: 640px) {
   .app-bar-inner { flex-wrap: wrap; }
-  .app-who { text-align: left; }
 }
 
 
