@@ -607,17 +607,12 @@ p  { margin: 0 0 16px; text-wrap: pretty; }
   border-top: 1px solid var(--separator-opaque);
 }
 .desk > div {
-  display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto 1fr; gap: 10px;
+  display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 1fr; gap: 10px;
   padding: clamp(18px, 2.2vw, 26px) clamp(16px, 2vw, 26px) clamp(4px, 1vw, 10px);
   border-left: 1px solid var(--separator);
 }
 .desk > div:first-child { border-left: 0; padding-left: 0; }
 .desk > div:last-child { padding-right: 0; }
-.desk .k {
-  font-family: var(--mono); font-size: var(--t-caption2); letter-spacing: .12em;
-  text-transform: uppercase; color: var(--label-4); line-height: 1.45;
-  min-height: 2.9em; align-self: start;
-}
 .desk .v {
   font-family: var(--serif); font-weight: 700; line-height: 1.1;
   font-size: clamp(1.3125rem, 2.2vw, 1.6875rem); letter-spacing: -.018em;
@@ -908,7 +903,6 @@ textarea { min-height: 130px; resize: vertical; }
   .desk > div:nth-child(3) { border-left: 0; padding-left: 0; }
   .desk > div:nth-child(odd) { border-left: 0; padding-left: 0; }
   .desk > div:nth-child(-n+2) { border-bottom: 1px solid var(--separator); padding-bottom: clamp(14px, 2vw, 20px); }
-  .desk .k { min-height: 0; }
   .hero-foot { grid-template-columns: minmax(0, 1fr); align-items: start; }
 }
 @media (max-width: 720px) {

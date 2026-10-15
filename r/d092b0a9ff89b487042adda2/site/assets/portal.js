@@ -201,6 +201,12 @@
    * disagree with the rows under it. */
   var COMPACT_ROWS = 4;
 
+  function kindWord(cell) {
+    var first = cell.firstChild;
+    var word = first && first.nodeType === 3 ? first.nodeValue : cell.textContent;
+    return (word || '').trim();
+  }
+
   var find = document.querySelector('[data-arc-find]');
   var list = document.querySelector('ul.archive');
   if (find && list) {
@@ -211,7 +217,9 @@
       return {
         li: li,
         date: d ? (d.textContent || '').trim() : '',
-        kind: k ? (k.textContent || '').trim() : '',
+        /* The kind is the tag's own word: the briefs shelf draws the filing
+         * clock inside the same cell, after the word, in .archive-filed. */
+        kind: k ? kindWord(k) : '',
         /* What the search box matches: every word on the row, as the
          * reader sees it, compared without regard to case. */
         text: (li.textContent || '').replace(/\s+/g, ' ').toLowerCase()
